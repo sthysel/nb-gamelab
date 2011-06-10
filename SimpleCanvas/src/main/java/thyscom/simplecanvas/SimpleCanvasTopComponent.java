@@ -1,14 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package thyscom.simplecanvas;
 
 import java.awt.BorderLayout;
-import javax.swing.JPanel;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
-import org.openide.windows.WindowManager;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -28,20 +22,18 @@ persistenceType = TopComponent.PERSISTENCE_ALWAYS)
 preferredID = "SimpleCanvasTopComponent")
 public final class SimpleCanvasTopComponent extends TopComponent {
 
-    private GameCanvas canvas;
+    private GamePanel gamePanel;
 
     public SimpleCanvasTopComponent() {
-        // initComponents();
+        initComponents();
         setLayout(new BorderLayout());
         setDisplayName("Game LAB");
-        canvas = new GameCanvas();
-        canvas.setSize(getWidth(), getHeight());
-        add(canvas);
 
         setName(NbBundle.getMessage(SimpleCanvasTopComponent.class, "CTL_SimpleCanvasTopComponent"));
         setToolTipText(NbBundle.getMessage(SimpleCanvasTopComponent.class, "HINT_SimpleCanvasTopComponent"));
 
-        canvas.startGame();
+        makeGamePanel();
+
     }
 
     /** This method is called from within the constructor to
@@ -52,44 +44,11 @@ public final class SimpleCanvasTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gamePanel = new javax.swing.JPanel();
-        startButton = new javax.swing.JButton();
-
-        gamePanel.setLayout(new java.awt.BorderLayout());
-
-        org.openide.awt.Mnemonics.setLocalizedText(startButton, org.openide.util.NbBundle.getMessage(SimpleCanvasTopComponent.class, "SimpleCanvasTopComponent.startButton.text")); // NOI18N
-        startButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(startButton)
-                .addContainerGap())
-            .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(startButton))
-        );
+        setLayout(new java.awt.BorderLayout());
     }// </editor-fold>//GEN-END:initComponents
 
-    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
-        canvas.startGame();
-    }//GEN-LAST:event_startButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel gamePanel;
-    private javax.swing.JButton startButton;
     // End of variables declaration//GEN-END:variables
-
     @Override
     public void componentOpened() {
         // TODO add custom code on component opening
@@ -111,5 +70,10 @@ public final class SimpleCanvasTopComponent extends TopComponent {
     void readProperties(java.util.Properties p) {
         String version = p.getProperty("version");
         // TODO read your settings according to their version
+    }
+
+    private void makeGamePanel() {
+        gamePanel = new GamePanel();
+        add(gamePanel, BorderLayout.CENTER);
     }
 }
