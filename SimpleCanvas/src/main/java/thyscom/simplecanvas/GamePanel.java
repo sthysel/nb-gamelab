@@ -1,9 +1,11 @@
 package thyscom.simplecanvas;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
-import org.openide.util.Exceptions;
+import org.pushingpixels.trident.Timeline.RepeatBehavior;
+import org.pushingpixels.trident.swing.SwingRepaintTimeline;
 
 /**
  *
@@ -11,7 +13,14 @@ import org.openide.util.Exceptions;
  */
 public class GamePanel extends JPanel {
 
+    SwingRepaintTimeline timeline;
+    
+    
     public GamePanel() {
+        timeline = new SwingRepaintTimeline(this);
+        timeline.addPropertyToInterpolate("foreground", Color.blue, Color.red);
+        timeline.setDuration(10000);
+        timeline.playLoop(RepeatBehavior.LOOP);
     }
 
     @Override
@@ -19,24 +28,5 @@ public class GamePanel extends JPanel {
         super.paintComponent(g);
         RadarConsole rconsole = new RadarConsole();
         rconsole.paint((Graphics2D) g, getSize());
-    }
-
-    public void startGame() {
-        Thread redraw = new Thread() {
-
-            @Override
-            public void run() {
-                while (isVisible()) {
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException ex) {
-                        Exceptions.printStackTrace(ex);
-                    }
-
-                }
-            }
-        };
-        redraw.setDaemon(true);
-        redraw.start();
     }
 }

@@ -10,7 +10,7 @@ import org.pushingpixels.trident.swing.SwingRepaintTimeline;
  * Cut & Paste from http://kenai.com/projects/trident/pages/UIToolkitSupport
  * @author thys
  */
-public class SnakePanelRectangle extends Panel {
+public class SnakePanelRectangle {
 
     private Color backgroundColor;
     private boolean isRollover;

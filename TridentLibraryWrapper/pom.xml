@@ -2,17 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-    <artifactId>GameLAB</artifactId>
-    <groupId>thyscom</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+        <artifactId>GameLAB</artifactId>
+        <groupId>thyscom</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <groupId>thyscom</groupId>
-    <artifactId>SimpleCanvas</artifactId>
+    <artifactId>TridentLibraryWrapper</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>nbm</packaging>
 
-    <name>SimpleCanvas NetBeans Module</name>
+    <name>TridentLibraryWrapper NetBeans Module</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -41,35 +41,11 @@
             <version>RELEASE70</version>
         </dependency>
         <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-windows</artifactId>
-            <version>RELEASE70</version>
+            <groupId>org.pushingpixels</groupId>
+            <artifactId>Trident</artifactId>
+            <version>1.3</version>
         </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-util</artifactId>
-            <version>RELEASE70</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-util-lookup</artifactId>
-            <version>RELEASE70</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-awt</artifactId>
-            <version>RELEASE70</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-netbeans-modules-settings</artifactId>
-            <version>RELEASE70</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>TridentLibraryWrapper</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+        
     </dependencies>
 
     <build>
@@ -79,6 +55,18 @@
                 <artifactId>nbm-maven-plugin</artifactId>
                 <version>3.5</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <publicPackages>
+                        <publicPackage>javax.annotation</publicPackage>
+                        <publicPackage>javax.annotation.meta</publicPackage>
+                        <publicPackage>org.netbeans.api.annotations.common</publicPackage>
+                        <publicPackage>org.pushingpixels.trident</publicPackage>
+                        <publicPackage>org.pushingpixels.trident.callback</publicPackage>
+                        <publicPackage>org.pushingpixels.trident.ease</publicPackage>
+                        <publicPackage>org.pushingpixels.trident.interpolator</publicPackage>
+                        <publicPackage>org.pushingpixels.trident.swing</publicPackage>
+                    </publicPackages>
+                </configuration>
             </plugin>
 
             <plugin>

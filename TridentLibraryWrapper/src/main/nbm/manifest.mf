@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: thyscom/tridentlibrarywrapper/Bundle.properties
+OpenIDE-Module-Layer: thyscom/tridentlibrarywrapper/layer.xml

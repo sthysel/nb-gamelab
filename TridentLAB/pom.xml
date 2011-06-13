@@ -66,9 +66,9 @@
             <version>RELEASE70</version>
         </dependency>
         <dependency>
-            <groupId>org.pushingpixels</groupId>
-            <artifactId>Trident</artifactId>
-            <version>1.3</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>TridentLibraryWrapper</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

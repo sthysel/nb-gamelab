@@ -67,6 +67,8 @@
         <module>branding</module>
         <module>application</module>
     <module>SimpleCanvas</module>
+    <module>TridentLAB</module>
+    <module>TridentLibraryWrapper</module>
   </modules>
 
     <properties>

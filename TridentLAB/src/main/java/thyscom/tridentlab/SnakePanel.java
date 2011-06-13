@@ -11,7 +11,7 @@ import org.pushingpixels.trident.Timeline.RepeatBehavior;
 import org.pushingpixels.trident.swing.SwingRepaintTimeline;
 
 /**
- * Cur & Paste from http://kenai.com/projects/trident/pages/ParallelSwingTimelines
+ * Cut & Paste from http://kenai.com/projects/trident/pages/ParallelSwingTimelines
  * @author thys
  */
 public class SnakePanel extends JPanel {
